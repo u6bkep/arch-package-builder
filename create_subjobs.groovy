@@ -27,7 +27,7 @@ readFileFromWorkspace('aur-packages').eachLine { line ->
       postBuildScripts {
         steps {
           shell('cp "${WORKSPACE}/"*.pkg.tar.* /var/lib/jenkins/packages/')
-          shell('"${WORKSPACE}"/copy-and-cleanup ${packageName}');
+          shell("/usr/local/bin/copy-and-cleanup ${packageName}");
         }
         onlyIfBuildSucceeds(true)
       }
